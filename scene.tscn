@@ -29,17 +29,17 @@ shader = ExtResource("2_nxogm")
 shader_parameter/resolution = 600.0
 shader_parameter/outline_darkness = 0.8
 
-[node name="Node3D" type="Node3D"]
+[node name="World" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_drvgu")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="Ball1" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.602988, -0.68245775, -0.41310635, -0.56300414, 0.730925, -0.38571346, 0.5651829, 0, -0.8249656, -1.044548, -5.8293343e-05, -1.1534032)
 mesh = SubResource("SphereMesh_3253y")
 surface_material_override/0 = SubResource("ShaderMaterial_nxogm")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+[node name="Ball2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8361568, -5.8293343e-05, 0.6827972)
 mesh = SubResource("SphereMesh_u3cyc")
 surface_material_override/0 = SubResource("ShaderMaterial_nxogm")
@@ -49,10 +49,10 @@ transform = Transform3D(0.7071068, -0.27287677, 0.65233296, 0, 0.9225381, 0.3859
 projection = 1
 size = 7.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+[node name="Posterizer" type="MeshInstance3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 mesh = SubResource("QuadMesh_nxogm")
 surface_material_override/0 = SubResource("ShaderMaterial_3253y")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.43559578, -0.61237246, 0.65973955, 0.43301275, 0.5, 0.7500002, -0.78914917, 0.61237246, 0.047367156, 0, 0, 0)
