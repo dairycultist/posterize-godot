@@ -1,16 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgoq5gjprw660"]
+[gd_scene load_steps=10 format=3 uid="uid://cgoq5gjprw660"]
 
 [ext_resource type="Shader" uid="uid://ddj76v8ub7acy" path="res://toon.gdshader" id="1_ulcgi"]
+[ext_resource type="Texture2D" uid="uid://dgrrwoyyvwbr8" path="res://icon.svg" id="2_3253y"]
 [ext_resource type="Shader" uid="uid://bnsmuixpsodbg" path="res://posterize.gdshader" id="2_nxogm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_drvgu"]
 size = Vector2(10, 10)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ulcgi"]
+[sub_resource type="SphereMesh" id="SphereMesh_3253y"]
+radius = 2.0
+height = 4.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxogm"]
 render_priority = 0
 shader = ExtResource("1_ulcgi")
+shader_parameter/albedo = ExtResource("2_3253y")
+
+[sub_resource type="SphereMesh" id="SphereMesh_u3cyc"]
+radius = 1.0
+height = 2.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_nxogm"]
 size = Vector2(15, 15)
@@ -19,6 +27,7 @@ size = Vector2(15, 15)
 render_priority = 0
 shader = ExtResource("2_nxogm")
 shader_parameter/resolution = 600.0
+shader_parameter/outline_darkness = 0.8
 
 [node name="Node3D" type="Node3D"]
 
@@ -26,8 +35,13 @@ shader_parameter/resolution = 600.0
 mesh = SubResource("PlaneMesh_drvgu")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_ulcgi")
+transform = Transform3D(-0.602988, -0.68245775, -0.41310635, -0.56300414, 0.730925, -0.38571346, 0.5651829, 0, -0.8249656, -1.044548, -5.8293343e-05, -1.1534032)
+mesh = SubResource("SphereMesh_3253y")
+surface_material_override/0 = SubResource("ShaderMaterial_nxogm")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8361568, -5.8293343e-05, 0.6827972)
+mesh = SubResource("SphereMesh_u3cyc")
 surface_material_override/0 = SubResource("ShaderMaterial_nxogm")
 
 [node name="Camera3D" type="Camera3D" parent="."]
